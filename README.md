@@ -35,4 +35,70 @@ The data have not been published, so the HTML versions of the notebooks are all 
 
 ---
 
-Phil Wilmarth - 20200123
+## What do you lose if you do IRS?
+
+The Internal Reference Scaling (IRS) method ([publication link](https://www.mcponline.org/content/16/5/873); [first (detailed) repo](https://github.com/pwilmart/IRS_normalization); [second (more background) repo](https://github.com/pwilmart/IRS_validation)) by its design is limited to the **intersection** of proteins identified across multiple plexes. This can seem like a significant loss compared to the **union** of proteins identified in the experiment (over all of the plexes). The question naturally arises - will a lot be lost during IRS? The answer is mostly **no**.
+
+The easiest thing to do is to count protein identifications. How many proteins do I see in each plex? How many in the whole experiment? And how many are seen in every plex? The problem is that low abundance proteins are counted with equal weight as high abundance proteins. We are doing quantitative measurements in these experiments, so we can do better than counting proteins. We can compare reporter ion intensity sums. Let's count things both ways to see the difference.
+
+We have a 2-plex experiment done on the Fusion using the slower SPS MS3 method. We have another experiment of the same samples ran on a Q-Exactive HF where the sampling depth was a little better. We can see what is the usable overlap (what we have after IRS) in each experiment separately. We were also able to do a combined IRS analysis, where the usable IRS set are the proteins seen in all 4 plexes. We will look at the separate platforms first, then work up the combined data.
+
+#### Fusion SPS MS3 experiment
+
+##### By protein count (comma is thousands separator)
+
+Category|Number of Proteins|Percentage of total
+--------|------------------|-------------------
+Union of all proteins reported|4,312
+Without contaminants and decoys|4,225
+Quantifiable (having reporter ion signals)|4,094|100%
+Intersection of quantifiable proteins|3,650|89.1%
+Unique to Plex 1|265|6.5%
+Unique to Plex 2|179|4.4%
+
+We did a reasonable fractionation for each plex, loaded a lot of sample, used a sensitive ID pipeline, and used a robust protein identification criterion (2 peptides per protein). We actually do very well having almost 90% of the total proteins quantifiable after IRS. How good this overlap will be depends all of the factors in the first sentence. Your sample, your separation, your instrument, your processing pipeline, etc. will all affect how good or bad the overlap seems.
+
+##### By Sums of reporter ion intensities
+
+Category|Sum of Intensities|Percentage of total
+--------|------------------|-------------------
+Total quantifiable set|4,955,816,354|100.00%
+Total intersection set|4,945,183,984|99.79%
+Total unique to Plex 1|6,450,278|0.13%
+Total unique to Plex 2|4,182,092|0.08%
+
+This picture is a little different. By relative abundance, 99.8% of the protein signals are retained after IRS. The proteins we do not consistently in each plex are **very** low in abundance. I am not making any claims about whether or not those proteins might be of great interest to the scientific questions being asked. I am just characterizing their measured quantities.
+
+#### Q-Exactive HF MS2 experiment
+
+##### By protein count (comma is thousands separator)
+
+Category|Number of Proteins|Percentage of total
+--------|------------------|-------------------
+Union of all proteins reported|5,632
+Without contaminants and decoys|5,443
+Quantifiable (having reporter ion signals)|5,415|100%
+Intersection of quantifiable proteins|4,900|90.5%
+Unique to Plex 1|324|6.0%
+Unique to Plex 2|191|3.5%
+
+The numbers of identified proteins on the QE are larger than from the Fusion, but the pattern is very similar. We have 90% of the proteins surviving the IRS method.
+
+##### By Sums of reporter ion intensities
+
+Category|Sum of Intensities|Percentage of total
+--------|------------------|-------------------
+Total quantifiable set|278,979,563,457|100.00%
+Total intersection set|278,241,678,866|99.74%
+Total unique to Plex 1|504,565,586|0.18%
+Total unique to Plex 2|233,319,005|0.08%
+
+The pattern by reporter ion intensity for the QE is just like for the Fusion. We have 99.7% of the measurements associated with the proteins after IRS, and **very little** associated with proteins unique to each plex.
+
+#### Combined Data
+
+**[I will add this soon. I ran out of time today (1/28)]**
+
+---
+
+Phil Wilmarth - 20200123 and 20200128

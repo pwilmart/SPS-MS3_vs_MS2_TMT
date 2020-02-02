@@ -2,7 +2,7 @@
 
 ## Comparison of SPS MS3 TMT data to MS2 TMT data
 
-#### Added January 23, 2020
+#### Added to Github January 23, 2020 (finished up Feb. 1, 2020)
 
 ---
 
@@ -95,10 +95,39 @@ Total unique to Plex 2|233,319,005|0.08%
 
 The pattern by reporter ion intensity for the QE is just like for the Fusion. We have 99.7% of the measurements associated with the proteins after IRS, and **very little** associated with proteins unique to each plex.
 
-#### Combined Data
+---
 
-**[I will add this soon. I ran out of time today (1/28)]**
+#### Combined Data (tallies by plaform)
+
+##### By protein count (comma is thousands separator)
+
+Category|Number of Proteins|Percentage of total
+--------|------------------|-------------------
+Union of all proteins reported|5,874
+Without contaminants and decoys|5,646
+Quantifiable (having reporter ions in any plex)|5,598|100%
+Proteins with reporter ions in **all** plexes|3,720|66.5%
+Proteins with any reporter ions in QE|5,539|99.0%
+Proteins with any reporter ions in Fusion|4,643|82.9%
+
+I have counted things differently compared to the individual platforms above. Since we are talking about quantification, I am not trying to tally which protein identifications were seen on both platforms versus each individual platform. The question is more like of all of the proteins seen between both platforms, how many had some quantifiable signal on each platform.
+
+##### By Sums of reporter ion intensities
+
+Category|Sum of Intensities|Percentage of total
+--------|------------------|-------------------
+Total quantifiable in either platform (union)|140,252,615,007|100.00%
+Total quantifiable in both platforms (intersection)|139,043,945,271|99.14%
+Total unique to QE|422,371,825|0.30%
+Total unique to Fusion|57,896,371|0.04%
+
+Even though we have quite a few more protein identifications on the Q-Exactive compared to the Fusion, they are still all very low abundance proteins. We had 5,598 quantifiable proteins across both platforms. The subset that had reporter ion signals in all of the 4 plexes was **only** 3,720 (only 66.5% of all IDs), yet those 3,720 proteins account for 99.14% of the reporter ion totals.
+
+We basically have the Q-Exactive data being a superset of the Fusion data for this experiment. Of the 5,646 total proteins (excluding contaminants and decoys), there were 154 proteins unique to the Fusions, 1,247 proteins unique to the QE, and 4,245 proteins seen on both platforms. For the most part, everything we saw on the Fusion was seen on the Q-Exactive.
+
+To conclude, when we count very low abundance proteins as protein identifications, with the same weight as highly abundant proteins, we grossly **exaggerate the differences** between samples and experiments. If we use some abundance weighted counting (we used intensities here, but we always have at least spectral counts available), we get a much more accurate picture.
+
 
 ---
 
-Phil Wilmarth - 20200123 and 20200128
+Phil Wilmarth - 20200123, 20200128, and 20200201

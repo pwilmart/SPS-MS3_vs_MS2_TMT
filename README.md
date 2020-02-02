@@ -125,8 +125,7 @@ Even though we have quite a few more protein identifications on the Q-Exactive c
 
 We basically have the Q-Exactive data being a superset of the Fusion data for this experiment. Of the 5,646 total proteins (excluding contaminants and decoys), there were 154 proteins unique to the Fusions, 1,247 proteins unique to the QE, and 4,245 proteins seen on both platforms. For the most part, everything we saw on the Fusion was seen on the Q-Exactive.
 
-To conclude, when we count very low abundance proteins as protein identifications, with the same weight as highly abundant proteins, we grossly **exaggerate the differences** between samples and experiments. If we use some abundance weighted counting (we used intensities here, but we always have at least spectral counts available), we get a much more accurate picture.
-
+To conclude, when we count very low abundance proteins as protein identifications, with the same weight as highly abundant proteins, we grossly **exaggerate the differences** between samples and experiments. If we use some abundance weighted counting (we used intensities here, but we always have at least spectral counts available), we get a much more accurate picture. We see that the limitation of having to observe reporter ions from proteins in each plex of a multiplex experiment to perform IRS is not really much of an issue in this case.
 
 ---
 
